@@ -1,6 +1,6 @@
 import { DCR, INC } from "../Constants/ActionType";
 
-const initialVal = 0;
+const initialVal = 50;
 
 const IncDcr = (state = initialVal , action) => {
 
