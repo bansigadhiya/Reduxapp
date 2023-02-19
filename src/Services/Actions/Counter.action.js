@@ -1,4 +1,4 @@
-import { INC ,DCR } from "../Constants/ActionType"
+import { INC ,DCR ,RESET } from "../Constants/ActionType"
 export const increment = (data) => {
     return{
         type : INC,
@@ -9,6 +9,13 @@ export const increment = (data) => {
 export const decrement = (data) => {
     return{
         type : DCR,
+        payload : data
+    }
+}
+
+export const reset = (data) => {
+    return{
+        type : RESET,
         payload : data
     }
 }

@@ -1,6 +1,6 @@
-import { DCR, INC } from "../Constants/ActionType";
+import { DCR, INC , RESET } from "../Constants/ActionType";
 
-const initialVal = 50;
+const initialVal = 0;
 
 const IncDcr = (state = initialVal , action) => {
 
@@ -9,7 +9,12 @@ const IncDcr = (state = initialVal , action) => {
             return state + 1;
             break;
         case DCR:
-            return state - 1;
+            if(state > 0){
+                return state - 1;
+            }
+            break;
+        case RESET :
+            return state = initialVal;
             break;
         default :
             return state;
