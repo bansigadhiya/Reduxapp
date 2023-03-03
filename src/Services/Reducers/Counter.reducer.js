@@ -1,22 +1,20 @@
-import { DCR, INC , RESET } from "../Constants/ActionType";
+import { DCR, INC, RESET } from "../Constants/ActionType";
 
 const initialVal = 0;
 
-const IncDcr = (state = initialVal , action) => {
+const IncDcr = (state = initialVal, action) => {
 
-    switch(action.type){
+    switch (action.type) {
         case INC:
             return state + 1;
             break;
         case DCR:
-            if(state > 0){
-                return state - 1;
-            }
+            return state - 1;
             break;
-        case RESET :
+        case RESET:
             return state = initialVal;
             break;
-        default :
+        default:
             return state;
     }
 }
