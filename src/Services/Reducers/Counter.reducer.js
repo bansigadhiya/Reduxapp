@@ -1,21 +1,46 @@
-import { DCR, INC, RESET } from "../Constants/ActionType";
+import { DCR, INC, LOADING, RESET } from "../Constants/ActionType";
 
-const initialVal = 0;
+const initialVal = {
+    count : 0,
+    isLoading : true
+};
 
 const IncDcr = (state = initialVal, action) => {
 
     switch (action.type) {
         case INC:
-            return state + 1;
+            return {
+                ...state,
+                count : state.count + 1,
+                isLoading : false
+            }
             break;
         case DCR:
-            return state - 1;
+            return {
+                ...state,
+                count : state.count - 1,
+                isLoading : false
+            }
             break;
+        case LOADING : 
+        console.log("lodding called");
+            return{
+                ...state,
+                isLoading : true
+            }
         case RESET:
-            return state = initialVal;
+            return {
+                ...state,
+                count : state.count,
+                isLoading : false
+            }
             break;
         default:
-            return state;
+            return {
+                ...state,
+                count : state.count,
+                isLoading : false
+            }
     }
 }
 
